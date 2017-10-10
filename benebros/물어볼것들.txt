@@ -1,0 +1,287 @@
+회원 유형 (멘토/멘티) 표시법 알아내기
+회원 유형변경금지 하는 방법 알아내기
+결제연동법 알아내기
+소셜 로그인후 유저 이름이 user00과 같이 되어 있는데 이것을 바꿀 방법 알아내기
+favicon 넣는 법 알아내기
+웹폰트 다운받는 속도가 느리다
+멘토목록 10명씩 좌우로 총 20명씩 배치방법 알아내기
+메인페이지 - 멘토 한명씩 사진과 소개글 슬라이드쇼형식으로 띄우기
+워드파일 생성방법
+실서비스에 필요한 것들 (서버관련)
+부트스트랩 사용법 - 다운받은 것들을 프로젝트 안으로 옮겼는데 css와 js가 적용이 안된다.
+
+
+
+    <section>
+        <div class="slideshow">
+            <div class="slide fade">
+                <div><img src="{% static "slide1.jpg" %}" alt="" width="100%" height="600px"></div>
+            </div>
+            <div class="slide fade">
+                <div><img src="{% static "slide2.jpg" %}" alt="" width="100%" height="600px"></div>
+            </div>
+            <div class="slide fade">
+                <div><img src="{% static "slide3.jpg" %}" alt="" width="100%" height="600px"></div>                    
+            </div>
+            <div class="slide fade">
+                <div><img src="{% static "slide4.jpg" %}" alt="" width="100%" height="600px"></div>
+            </div>
+
+            <a class="prev" onclick="plusIndex(-1)">&#10094;</a>
+            <a class="next" onclick="plusIndex(+1)">&#10095;</a>
+        </div>
+
+        <div style="text-align: center;">
+            <span class="dots" onclick="currentSlide(1)"></span>
+            <span class="dots" onclick="currentSlide(2)"></span>
+            <span class="dots" onclick="currentSlide(3)"></span>
+            <span class="dots" onclick="currentSlide(4)"></span>
+        </div>
+        <br/>
+
+        <script>
+            var slideIndex = 1;
+
+            showImage(slideIndex);
+
+            function plusIndex(n) {
+                showImage(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showImage(slideIndex = n);
+            }
+
+            function showImage(n){
+                var slide = document.getElementsByClassName("slide");
+                var dots = document.getElementsByClassName("dots");
+                
+                if (n > slide.length) {
+                    slideIndex = 1;
+                };
+                if (n < 1) {
+                    slideIndex = slide.length;
+                };
+
+                for (var i = 0; i < slide.length ; i++) {
+                    slide[i].style.display = "none";
+                };
+                slide[slideIndex-1].style.display = "block";
+
+                for (var i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active","");
+                }
+
+                dots[slideIndex-1].className += " active";
+            };
+
+            autoSlide();
+
+            function autoSlide() {
+                var i;
+                var slide = document.getElementsByClassName("slide");
+                var dots = document.getElementsByClassName("dots");
+
+                if (slideIndex > slide.length) {
+                    slideIndex = 1;
+                };
+                if (slideIndex < 1) {
+                    slideIndex = slide.length;
+                };
+                for (i = 0; i < slide.length ; i++) {
+                    slide[i].style.display = "none";
+                };
+                slide[slideIndex-1].style.display = "block";
+                for (var i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active","");
+                }
+
+                dots[slideIndex-1].className += " active";
+                slideIndex++;
+                
+                setTimeout(autoSlide,5000);
+            };
+        </script>
+
+
+
+
+
+        * {
+    margin: 0 auto;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: white;
+}
+a:active, a:hover, a:focus {
+    color: #6d4d27;
+}
+li {
+    list-style: none;
+}
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 3em;
+}
+#container {
+    width: 100%;
+    max-width: 1800px;
+    min-width: 960px;
+    background-color: #ccb69b;
+    margin: 0 auto;
+}
+#loginbar {
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    line-height: 80px;
+    background: linear-gradient(to top, #666058, #989086);
+    border-radius: 4px;
+    font-size: 1.5em;
+    font-weight: bold;
+    overflow: hidden;
+}
+#loginbar > a {
+    box-sizing: border-box;
+    float: left;
+    margin: 0 2%;
+}
+#loginbar ul {
+    float: right;
+    margin: 0 3%;
+}
+#loginbar ul li {
+    float: left;
+}
+#loginbar ul li a {
+    display: block;
+    padding: 0 20px;
+}
+header {
+    clear: both;
+    width: 100%;
+}
+#descript {
+    width: 96%;
+    height: 400px;
+    background: url("{% static "coffee.jpg" %}") no-repeat center;
+    background-size: cover;
+    color: white;
+    overflow: hidden;
+}
+#descript h1 {
+    font-style: italic;
+    text-align: center;
+}
+#descript h2 {
+    position: relative;
+    top: 200px;
+    left: 50px;
+}
+.navbar-horizon {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, #8f6736, #c59458);
+    border-radius: 4px;
+    font-size: 1.5em;
+    font-weight: bold;
+    overflow: hidden;
+}
+.navbar-horizon ul:first-child {
+    float: left;
+}
+.navbar-horizon ul:last-child {
+    float: right;
+}
+.navbar-horizon ul li {
+    float: left;
+}
+.navbar-horizon ul li a {
+    padding: 0 20px;
+}
+section {
+    width: 100%;
+}
+.slideshow {
+    width: 60%;
+    position: relative;
+    margin: 5px auto 0;
+}
+.slide {
+    display: none;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding: 10px 10px;
+    font-size: 3em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.prev {
+    left: 5%;
+}
+.next {
+    border-radius: 50%;
+    right: 5%;
+}
+.dots {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: gray;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.active, .dots:hover {
+    background: #524637;
+}
+.clear {
+    clear: both;
+}
+.step-img-odd, .step-img-even {
+    width: 99.5%;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.step-img-odd img {
+    float: left;
+    margin-bottom: 10px;
+}
+.step-img-even img {
+    float: right;
+    margin-bottom: 10px;
+}
+footer {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background-color: #a59b8f;
+    color: #8c8378;
+    text-shadow: -1px -1px 1px #776e63;
+    overflow: hidden;
+}

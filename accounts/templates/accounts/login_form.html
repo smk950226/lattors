@@ -1,0 +1,56 @@
+{% extends "accounts/layout.html" %}
+{% load staticfiles %}
+{% load socialaccount %}
+
+{% block content %}
+ <!-- Hero Start -->
+ <section id="hero">
+    <div class="fs-hero hero-img" style="background-image:url({% static 'images/background.jpg' %})">
+        <div class="hero-caption text-white center-left">
+            <h3 class="font-weight-light">LATTORS</h3>
+            <h1 class="ls-2">커피한잔과 이야기</h1>
+            <p class="mrg-top-20">나에게 알맞는 선배와의 따스한 커피한잔과 진솔한 이야기</p>
+            <div class="mrg-top-20">
+                <a href="{% url "root" %}" class="btn btn-white-inverse btn-md">About</a>
+            </div><!-- margin -->
+        </div>
+    </div>
+</section>
+<!-- Hero End -->
+</div>   
+<!-- Modal Start -->
+<div class="modal fade modal-center load-active" id="login" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body no-pdd">
+                <div class="login-panel pdd-horizon-15 pdd-vertical-30">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                            <div class="right-panel text-center">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <h3 class="mrg-btm-30 mrg-top-40">Connect With</h3>
+                                        {% for provider in providers %}
+                                            {% if provider.social_app %}
+                                                <a class="card mrg-btm-10 padding-15 display-block text-center text-{{provider.name}} hover-{{provider.name}} text-uppercase" href="{% provider_login_url provider.id %}">	
+                                                    <i class="ei ei-{{provider.name}}"></i> <b class="font-secondary ls-1">{{ provider.name }}</b>
+                                                </a>
+                                            {% else %}
+                                                <a> Provider {{ provider.name }}설정이 필용합니다.</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-close">
+                    <button type="button" class="btn icon-btn-md icon-btn-round btn-dark lh-0" data-dismiss="modal"><i class="ei ei-close"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+{% endblock %}

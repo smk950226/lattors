@@ -1,0 +1,169 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Hero Slider Start -->
+<section id="hero">
+    <div class="fs-hero hero-slider">
+        <div class="swiper-hero swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url({% static "images/act4.jpg" %})">
+                    <div class="hero-caption center-left text-white">
+                        <h2 class="font-weight-bold mrg-btm-20"><span class="theme-color">COM.MA</span> - 청소년의 진로에 쉼표를 찍다,</h2>
+                        <p>어디로 진학해야 할 지가 고민일 때, 콤마를 두드려 보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="https://com-ma.wixsite.com/comma" target="_blank"> COM.MA 홈페이지</a>
+                        </div>
+                    </div>			
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act5.jpg" %})">
+                    <div class="hero-caption text-white center-left">
+                        <h2 class="ls-3-5 font-weight-bold"><span class="theme-color">COM.MA</span> - <span class="theme-color">Com</span>munication with <span class="theme-color">Ma</span>jor</h2>
+                        <p class="mrg-top-20">다양한 전공의 멘토분들에게 각자의 전공 이야기를 들어보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="https://com-ma.wixsite.com/comma" target="_blank"> COM.MA 홈페이지</a>
+                        </div>
+                    </div>		
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act6.jpg" %})">
+                    <div class="hero-caption text-white center">
+                        <h2 class="font-weight-bold"><span class="theme-color">COM.MA</span> - 멘토링 봉사</h2>
+                        <p class="mrg-top-20">자신의 학교에 콤마를 불러보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="https://com-ma.wixsite.com/comma" target="_blank"> COM.MA 홈페이지</a>
+                        </div>
+                    </div>		
+                </div>
+            </div><!-- /swiper-wrapper -->
+            <div class="swiper-navigation navigation-2">
+                <div class="swiper-hero-button-next"><i class="ei ei-right-chevron"></i></div>
+                <div class="swiper-hero-button-prev"><i class="ei ei-left-chevron"></i></div>
+            </div>
+            <div class="swiper-hero-pagination swiper-bullet-1"></div>
+        </div>
+    </div><!-- /hero-img -->
+</section>
+<!-- Hero Slider End -->
+
+<section class="section-2">
+    <div class="container">
+        <h2 class="heading-1 text-center">COM.MA</h2>
+        <p class="text-center width-70 mrg-horizon-auto font-size-20">Communication with Major, COM.MA는 <br/>
+                                                        어느 '대학'이냐보다 어느 '학과'이냐가 더 중요해진 요즘<br/>
+                                                        고등학생들에게 '전공'에 대한 이야기를 들려주고 정보를 전해주는<br/>
+                                                        대학생 전공강연 봉사 동아리입니다.</p>
+    </div>
+    <div class="text-center mrg-top-30">
+        <a href="https://com-ma.wixsite.com/comma" class="btn btn-dark btn-md" target="_blank">COM.MA 방문하기</a>
+    </div>
+</section>
+
+<!-- Portfolio Start -->
+<section class="section-1">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="heading-1 text-center">COM.MA의 활동</h2>
+            <p class="width-60 mrg-horizon-auto">COM.MA가 어떠한 활동을 하는지 궁금하시나요? COM.MA를 만나보세요.</p>	
+        </div><!-- /text-center -->    
+    </div>
+    <div class="container-fluid">
+        <div class="portfolio isotope masonry row col-4 mrg-top-50">
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma1.png" %}" alt="" data-toggle="modal" data-target="#modal-large">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">충남외국어고등학교</h3>
+                            <p class="describe">2014.12.27</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma2.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">서울신림고등학교</h3>
+                            <p class="describe">2014.11.03</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma7.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">충남외국어고등학교</h3>
+                            <p class="describe">2015.05.30</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma3.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">은평대전</h3>
+                            <p class="describe">2014.11.07</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma4.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">서울 나눔천사 청소년 축제</h3>
+                            <p class="describe">2014.10.18</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma5.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">서울금옥여자고등학교</h3>
+                            <p class="describe">2014.12.03</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+            <a href="portfolio-single-1.html" class="folio-item">
+                <div class="folio-style-2">
+                    <div class="folio-image">
+                        <img class="img-responsive" src="{% static "images/comma/comma6.png" %}" alt="">
+                    </div><!-- /folio-image -->
+                    <div class="overlay">
+                        <div class="folio-caption">
+                            <h3 class="folio-tittle">서울홍익여자고등학교</h3>
+                            <p class="describe">2014.10.22</p>
+                        </div><!-- /folio-caption -->
+                    </div><!-- /overlay -->
+                </div><!-- folio-style -->
+            </a><!-- /folio-item -->
+        </div><!-- /portfolio-->    
+    </div>
+    <div class="text-center mrg-top-30">
+        <a href="{% url "lattors:act_photo" %}" class="btn btn-dark btn-md">활동사진 더보기</a>
+    </div>
+</section>
+<!-- Portfolio End -->
+{% endblock %}

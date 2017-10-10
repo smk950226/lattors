@@ -1,0 +1,272 @@
+@import url(https://fonts.googleapis.com/earlyaccess/hanna.css); /*font-family: 'Hanna', sans-serif;*/
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css); /*font-family: 'Jeju Gothic', sans-serif;*/
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Jeju Gothic', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: white;
+}
+ul {
+    list-style: none;
+}
+li {
+    float: left;
+    margin: 0 20px;
+}
+h1,h2,h3,h4 {
+    font-family: 'Hanna', sans-serif; 
+}
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 3em;
+}
+h3 {
+    font-size: 2em;
+}
+h4 {
+    font-size: 1em;
+}
+section {
+    margin: 20px auto;
+    text-align: center;
+}
+.btn {
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    font-family: 'Hanna', sans-serif;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background-color: rgba(100,100,100,0.5);
+}
+.btn-small {
+    width: 70px;
+}
+.btn-default {
+    width: 100px;
+}
+.btn-large {
+    width: 200px;
+}
+.btn-black {
+    background-color: black;
+}
+.none {
+    display: none;
+    text-align: center;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+nav a:link, nav a:visited {
+    color: black;
+}
+nav a:hover {
+    color: #977b3a;
+}
+nav li:hover {
+    color: #977b3a;
+    cursor: pointer;
+}
+nav ul > li:nth-child(1):hover .none, nav ul > li:nth-child(4):hover .none {
+    display: block;
+}
+.navbar {
+    width: 100%;
+    background-color: #eee7db;
+    height: 80px;
+    line-height: 80px;
+}
+.navbar ul:first-child {
+    float: left;
+}
+.navbar ul {
+    float: right;
+}
+.none li {
+    clear: both;
+    border-bottom: 1px solid #977b3a;
+    height: 50px;
+    line-height: 50px;
+}
+.none li:last-child {
+    border-bottom: none;
+}
+.sidebar {
+    width: 8%;
+    position: fixed;
+    top: 20%;
+    background-color: #eee7db;
+}
+.sidebar ul li {
+    clear: both;
+    border-bottom: 2px solid #977b3a;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+.sidebar ul li:first-child {
+    padding-top: 10px;
+}
+.sidebar ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+.sidebar a:link, .sidebar a:visited {
+    color: black;
+}
+.sidebar a:hover {
+    color: #977b3a;
+}
+.intro {
+    width: 100%;
+    height: 1000px;
+    min-height: auto;
+    text-align: center;
+    color: white;
+}
+.intro-text {
+    position: relative;
+    line-height: 1.5;
+    top: 40%;
+}
+.intro-text p {
+    font-size: 1.5em;
+}
+.intro-text .btn {
+    margin: 10px auto;
+}
+footer {
+    width: 100%;
+    height: 100px;
+    padding-top: 40px;
+    text-align: center;
+    background-color: #eee7db;
+}
+.img-text {
+    width: 90%;
+    padding: 10px;
+    margin: 0 4%;
+}
+.img-text-img {
+    float: left;
+}
+.arrange-check {
+    width: 70%;
+    height: 1100px;
+    margin: auto;
+    background-color: #eee7db;
+    padding: 2%;
+}
+.arrange-check-leftimg {
+    float: left;
+    width: 48.5%;
+    margin: 0 0.5% 0 1%;
+}
+.arrange-check-rightimg {
+    float: right;
+    width: 48.5%;
+    margin: 0 1% 0 0.5%;
+}
+.arrange-check div {
+    margin-bottom: 10px;
+}
+.arrange-check-leftimg div:hover, .arrange-check-rightimg div:hover {
+    opacity: 0.5;
+}
+.arrange-check-leftimg div:hover h1, .arrange-check-rightimg div:hover h1 {
+    display: block;
+    z-index: 10;
+}
+.arrange-check img:hover, .arrange-check img:active, .arrange-check img:focus {
+    opacity: 0.5;
+}
+.clear {
+    clear: both;
+}
+.slideshow {
+    width: 90%;
+    position: relative;
+    margin: 40px auto 0;
+}
+.slide {
+    display: none;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding: 10px 10px;
+    font-size: 3em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.prev {
+    left: 2%;
+}
+.next {
+    border-radius: 50%;
+    right: 2%;
+}
+.dots {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: gray;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.active, .dots:hover {
+    background: #524637;
+}
+.container-90 {
+    width: 90%;
+    margin: 0 auto;
+}
+.picto {
+    display: inline-block;
+    width: 25%;
+    margin-top: 40px;
+    margin-right: 5%;
+    text-align: center;
+}
+.picto-last {
+    margin-right: 0;
+}
+.picto img {
+    margin: 0;
+    padding: 0;
+}
+.caption {
+    text-align: center;
+}

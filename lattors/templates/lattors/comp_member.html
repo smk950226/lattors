@@ -1,0 +1,324 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Title Start -->
+<section class="page-tittle page-tittle-xl kenburn-bg dark-overlay">
+    <img class="kenburn-img" src="{% static "images/about.jpg" %}" alt="About">
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>BeneBros</h2>
+            <p>이로운 사람들이 모여 만드는 이로운 세상</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_intro" %}">Introduction</a></li>
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_vision" %}">Vision</a></li>
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_contact" %}">Contact Us</a></li>
+        </ol>
+    </div>
+</section>
+<!-- Page Title End -->
+<section class="section-1">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12 mrg-top-30">
+                <h2 class="heading-1 text-center mrg-btm-30" style="font-weight: bold;">우리의 <span class="theme-color" style="font-weight: bold;">팀원을</span> 소개합니다</h2>
+            </div>
+            <div class="col-md-12 text-center no-pdd mrg-top-30">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">김승민</span>
+                                                <span class="position">Founder</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member1_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">구영진</span>
+                                                <span class="position">Begger</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member2_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">유창완</span>
+                                                <span class="position">Anger</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member3_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">곽준오</span>
+                                                <span class="position">GaoGaiger</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member4_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">유충완</span>
+                                                <span class="position">Lava</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member5_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">김한솔</span>
+                                                <span class="position">Soldier</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center no-pdd mrg-top-30">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member6_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">유짱완</span>
+                                                <span class="position">Fighter</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member7_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">조현승</span>
+                                                <span class="position">Repeater</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member8_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">구영진</span>
+                                                <span class="position">EunJi</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member9_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">김한솔</span>
+                                                <span class="position">KeybordWarrier</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member10_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">구영진</span>
+                                                <span class="position">Begger2</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member11_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">이수한</span>
+                                                <span class="position">Gangster</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center no-pdd mrg-top-30">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member12_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">김대일</span>
+                                                <span class="position">BigHead</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member13_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">구영진</span>
+                                                <span class="position">Begger3</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member14_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">유창완</span>
+                                                <span class="position">Killer</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member15_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">박상엽</span>
+                                                <span class="position">Soldier2</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member16_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">이지훈</span>
+                                                <span class="position">Police</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 no-pdd">
+                            <div class="team-3">
+                                <div class="team-member">
+                                    <img class="img-responsive" src="{% static "images/people/member17_250.jpg" %}" alt="">
+                                    <div class="member-info">
+                                        <div class="vertical-align">
+                                            <div class="table-cell">
+                                                <span class="name">구영진</span>
+                                                <span class="position">Fucking</span>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

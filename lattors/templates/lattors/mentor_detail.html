@@ -1,0 +1,58 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles  %}
+{% load imagekit %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg kenburn-bg dark-overlay">
+    <img class="kenburn-img" src="{% static "images/coffee.jpg" %}" alt="">
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2 style="font-weight: bold;">멘토를 소개합니다</h2>
+            <p>다양한 멘토분들을 알아보세요. 그리고 여러분에게 알맞는 멘토와 커피한잔을 나누세요.</p>
+        </div>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1" style="padding-bottom: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 class="heading-1 mrg-top-50" style="font-weight: bold;"><span class="theme-color">{{ mentor.name }}</h2>
+                        <p><span class="theme-color" style="font-weight: bold;">학교 :</span> {{ mentor.school }}</p>
+                        <p><span class="theme-color" style="font-weight: bold;">전공 :</span> {{ mentor.major }}</p>
+                        {% if mentor.sub_major %}
+                        <p><span class="theme-color" style="font-weight: bold;">부전공 : </span>{{ mentor.sub_major }}</p>
+                        {% endif %}
+                        <p><span class="theme-color" style="font-weight: bold;">주소 :</span> {{ mentor.addr }}</p>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1">
+                        <div class="img-style-1">
+                            <img class="img-responsive" src="{{ mentor.photo.url }}" alt="" width="400px" height="600px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-1 single-post" style="padding-top: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="features-block-5">
+                     <p>{{ mentor.intro|linebreaksbr }}</p>
+                </div>
+                <div class="blog-action">
+                    <span class="comments"><a href="javascript:void(0);"><i class="ei ei-show"></i> {{ mentor.hits }}</a></span>
+                    <span class="likes"><a href="javascript:void(0);"><i class="ei ei-heart"></i> 168</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

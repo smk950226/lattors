@@ -1,0 +1,193 @@
+/*---------------------------------------------------------------------------
+  Theme: Eastern
+  
+  Your CSS goes here
+----------------------------------------------------------------------------*/
+
+
+.text-Facebook {
+  color: #3B579D;
+}
+
+.text-Naver {
+  color:#00C03A;
+}
+
+.text-Kakao {
+  color: #FFF313;
+}
+
+.hover-Facebook {
+  color: #3B579D;
+}
+
+.hover-Facebook:hover,
+.hover-Facebook:focus {
+  color: #fff;
+  background-color: #3B579D;
+}
+
+.hover-Facebook.btn-white-inverse {
+  color: #fff;
+  border-color: #fff;
+}
+
+.hover-Facebook.btn-white-inverse:hover,
+.hover-Facebook.btn-white-inverse:focus {
+  color: #fff;
+  border-color: #3B579D;
+}
+
+.hover-Facebook.btn-dark-inverse {
+  color: #333743;
+  border-color: #333743;
+}
+
+.hover-Facebook.btn-dark-inverse:hover,
+.hover-Facebook.btn-dark-inverse:focus {
+  color: #fff;
+  border-color: #3B579D;
+}
+
+.hover-Facebook.btn-dark {
+  color: #fff;
+  border: 2px solid #333743;
+}
+
+.hover-Facebook.btn-dark:hover,
+.hover-Facebook.btn-dark:focus {
+  color: #fff;
+  border-color: #3B579D;
+  background-color: #3B579D;
+}
+
+.hover-Facebook.btn-white {
+  background-color: #fff;
+  color: #333743;
+  border: 1px solid transparent;
+}
+
+.hover-Facebook.btn-white:hover,
+.hover-Facebook.btn-white:focus {
+  color: #fff;
+  border-color: #3B579D;
+  background-color: #3B579D;
+}
+
+.hover-Naver {
+  color: #00C03A;
+}
+
+.hover-Naver:hover,
+.hover-Naver:focus {
+  color: #fff;
+  background-color: #00C03A;
+}
+
+.hover-Naver.btn-white-inverse {
+  color: #fff;
+  border-color: #fff;
+}
+
+.hover-Naver.btn-white-inverse:hover,
+.hover-Naver.btn-white-inverse:focus {
+  color: #fff;
+  border-color: #00C03A;
+}
+
+.hover-Naver.btn-dark-inverse {
+  color: #333743;
+  border-color: #333743;
+}
+
+.hover-Naver.btn-dark-inverse:hover,
+.hover-Naver.btn-dark-inverse:focus {
+  color: #fff;
+  border-color: #00C03A;
+}
+
+.hover-Naver.btn-dark {
+  color: #fff;
+  border: 2px solid #333743;
+}
+
+.hover-Naver.btn-dark:hover,
+.hover-Naver.btn-dark:focus {
+  color: #fff;
+  border-color: #00C03A;
+  background-color: #00C03A;
+}
+
+.hover-Naver.btn-white {
+  background-color: #fff;
+  color: #333743;
+  border: 1px solid transparent;
+}
+
+.hover-Naver.btn-white:hover,
+.hover-Naver.btn-white:focus {
+  color: #fff;
+  border-color: #00C03A;
+  background-color: #00C03A;
+}
+
+.hover-Kakao {
+  color: #FFF313;
+}
+
+.hover-Kakao:hover,
+.hover-Kakao:focus {
+  color: #3B1D1B;
+  background-color: #FFF313;
+}
+
+.hover-Kakao.btn-white-inverse {
+  color: #fff;
+  border-color: #fff;
+}
+
+.hover-Kakao.btn-white-inverse:hover,
+.hover-Kakao.btn-white-inverse:focus {
+  color: #fff;
+  border-color: #FFF313;
+}
+
+.hover-Kakao.btn-dark-inverse {
+  color: #333743;
+  border-color: #333743;
+}
+
+.hover-Kakao.btn-dark-inverse:hover,
+.hover-Kakao.btn-dark-inverse:focus {
+  color: #fff;
+  border-color: #FFF313;
+}
+
+.hover-Kakao.btn-dark {
+  color: #fff;
+  border: 2px solid #333743;
+}
+
+.hover-Kakao.btn-dark:hover,
+.hover-Kakao.btn-dark:focus {
+  color: #fff;
+  border-color: #FFF313;
+  background-color: #FFF313;
+}
+
+.hover-Kakao.btn-white {
+  background-color: #fff;
+  color: #333743;
+  border: 1px solid transparent;
+}
+
+.hover-Kakao.btn-white:hover,
+.hover-Kakao.btn-white:focus {
+  color: #fff;
+  border-color: #FFF313;
+  background-color: #FFF313;
+}
+
+.comp_intro_list {
+  display: inline;
+}

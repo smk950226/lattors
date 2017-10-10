@@ -1,0 +1,192 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Title Start -->
+<section class="page-tittle page-tittle-xl kenburn-bg dark-overlay">
+    <img class="kenburn-img" src="{% static "images/about.jpg" %}" alt="About">
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>BeneBros</h2>
+            <p>이로운 사람들이 모여 만드는 이로운 세상</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_intro" %}">Introduction</a></li>
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_member" %}">Team Member</a></li>
+          <li class="breadcrumb-item"><a href="{% url "lattors:comp_contact" %}">Contact Us</a></li>
+        </ol>
+    </div>
+</section>
+<!-- Page Title End -->
+
+<!-- About Start -->
+<section class="section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2 class="heading-1 mrg-top-150">Vision & Mission</h2>
+                <span class="font-size-18 theme-color mrg-top-50"><b>이로운 세상을 만들자</b></span>
+            </div>
+            <div class="col-md-4">
+                <div class="pdd-right-30 mrg-top-90" data-parallax='{"y": 40}'>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries,</p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="img-responsive img-style-2 mrg-btm-30" src="{% static "images/about3.jpg" %}" alt="" data-parallax='{"y": -40}'>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="isotope masonry col-3 gutter-sm">
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity1.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">한국 vs 이란</h3>
+                                    <p class="describe">2017.08.31</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity2.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">Chicken & Beer</h3>
+                                    <p class="describe">2017.07.19</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity3.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">COM.MA Soccer</h3>
+                                    <p class="describe">2017.07.08</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity4.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">Bike Riding</h3>
+                                    <p class="describe">2017.07.03</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity5.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">Soccer</h3>
+                                    <p class="describe">2017.06.22</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                    <a href="#" class="folio-item">
+                        <div class="folio-style-2">
+                            <div class="folio-image">
+                                <img class="img-responsive" src="{% static "images/activity6.jpg" %}" alt="">
+                            </div><!-- /folio-image -->
+                            <div class="overlay">
+                                <div class="folio-caption">
+                                    <h3 class="folio-tittle">밤도깨비 야시장</h3>
+                                    <p class="describe">2017.05.19</p>
+                                </div><!-- /folio-caption -->
+                            </div><!-- /overlay -->
+                        </div><!-- folio-style -->
+                    </a><!-- /folio-item -->
+                </div><!-- /portfoilo -->
+
+            </div>
+            <div class="col-md-offset-1 col-md-3">
+                <div class="pdd-top-150" data-parallax='{"y": 40}'>
+                    <h2 class="heading-1 mrg-top-120">우리의 활동</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-1">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="heading-1 text-center mrg-btm-30">Why <span class="theme-color">Choose</span> Us</h2>
+            <p class="width-40 mrg-horizon-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from.</p>
+        </div>
+        <div class="row mrg-top-50">
+            <div class="col-md-4 mrg-btm-30">
+                <div class="features-block-5">
+                    <i class="ei ei-insurance"></i>
+                    <div class="features-info">
+                        <h4 class="features-tittle">Frank</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mrg-btm-30">
+                <div class="features-block-5">
+                    <i class="ei ei-folder-check"></i>
+                    <div class="features-info">
+                        <h4 class="features-tittle">Familiar</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mrg-btm-30">
+                <div class="features-block-5">
+                    <i class="ei ei-pencil"></i>
+                    <div class="features-info">
+                        <h4 class="features-tittle">Accurate</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-4 fixed-bg bg dark-overlay" style="background-image:url({% static 'images/activity10.jpg'%})">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="mrg-btm-50">우리와 함께하세요</h2>
+                <a class="btn btn-lg btn-theme border-radius-4" href="{% url "lattors:comp_contact" %}">Get Contact</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About End -->
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Hero Slider Start -->
+<section id="hero">
+    <div class="fs-hero hero-slider">
+        <div class="swiper-hero swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url({% static "images/act1.jpg" %})">
+                    <div class="hero-caption center-right text-white">
+                        <h2 class="font-weight-bold mrg-btm-20"><span class="theme-color">Lattors</span> - 커피 한잔의 이야기</h2>
+                        <p>향긋한 커피와 함께 다양한 사람들과 이야기를 나누어 보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_lattors" %}"> About</a>
+                        </div>
+                    </div>			
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act2.jpg" %})">
+                    <div class="hero-caption text-white center-right">
+                        <h2 class="font-weight-bold"><span class="theme-color">Lattors</span> - 고민을 함께 나누세요</h2>
+                        <p class="mrg-top-20">고민이 있다면, 생각이 많다면 여러 사람들을 만나보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_lattors" %}"> About</a>
+                        </div>
+                    </div>		
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act3.jpg" %})">
+                    <div class="hero-caption text-white btm-right">
+                        <h2 class="font-weight-bold"><span class="theme-color">Lattors</span> - 맞춤형 상담</h2>
+                        <p class="mrg-top-20">여러분의 고민을 가장 잘 아는 해당 분야의 사람과 상담해 보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_lattors" %}"> About</a>
+                        </div>
+                    </div>		
+                </div>
+            </div><!-- /swiper-wrapper -->
+            <div class="swiper-navigation navigation-2">
+                <div class="swiper-hero-button-next"><i class="ei ei-right-chevron"></i></div>
+                <div class="swiper-hero-button-prev"><i class="ei ei-left-chevron"></i></div>
+            </div>
+            <div class="swiper-hero-pagination swiper-bullet-1"></div>
+        </div>
+    </div><!-- /hero-img -->
+</section>
+<!-- Hero Slider End -->
+
+<!-- Hero Slider Start -->
+<section id="hero">
+    <div class="fs-hero hero-slider">
+        <div class="swiper-hero swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url({% static "images/act4.jpg" %})">
+                    <div class="hero-caption center-left text-white">
+                        <h2 class="font-weight-bold mrg-btm-20"><span class="theme-color">COM.MA</span> - 청소년의 진로에 쉼표를 찍다,</h2>
+                        <p>어디로 진학해야 할 지가 고민일 때, 콤마를 두드려 보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_comma" %}"> About</a>
+                        </div>
+                    </div>			
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act5.jpg" %})">
+                    <div class="hero-caption text-white center-left">
+                        <h2 class="ls-3-5 font-weight-bold"><span class="theme-color">COM.MA</span> - <span class="theme-color">Com</span>munication with <span class="theme-color">Ma</span>jor</h2>
+                        <p class="mrg-top-20">다양한 전공의 멘토분들에게 각자의 전공 이야기를 들어보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_comma" %}"> About</a>
+                        </div>
+                    </div>		
+                </div>
+                <div class="swiper-slide" style="background-image:url({% static "images/act6.jpg" %})">
+                    <div class="hero-caption text-white center">
+                        <h2 class="font-weight-bold"><span class="theme-color">COM.MA</span> - 멘토링 봉사</h2>
+                        <p class="mrg-top-20">자신의 학교에 콤마를 불러보세요.</p>
+                        <div class="mrg-top-30">
+                            <a class="btn btn-md btn-white" href="{% url "lattors:act_comma" %}"> About</a>
+                        </div>
+                    </div>		
+                </div>
+            </div><!-- /swiper-wrapper -->
+            <div class="swiper-navigation navigation-2">
+                <div class="swiper-hero-button-next"><i class="ei ei-right-chevron"></i></div>
+                <div class="swiper-hero-button-prev"><i class="ei ei-left-chevron"></i></div>
+            </div>
+            <div class="swiper-hero-pagination swiper-bullet-1"></div>
+        </div>
+    </div><!-- /hero-img -->
+</section>
+<!-- Hero Slider End -->
+{% endblock %}
