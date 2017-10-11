@@ -1,0 +1,10 @@
+django == 1.10.6
+django-debug-toolbar
+django-extensions
+ipython[notebook]
+django-bootstrap3
+Pillow
+pilkit
+django-imagekit
+raven
+django-allauth==0.31.0
