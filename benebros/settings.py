@@ -118,7 +118,7 @@ AUTHENTICATION_BACKEND= [
 
 SITE_ID = 1
 
-SOCAILACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -147,3 +147,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 NAVER_CLIENT_ID='JpoZ92Akefdoiqe3xJmz'
+
+SOCIALACCOUNT_AUTO_SIGNUP = False
+
+ACCOUNT_SIGN_UP_FORM_CLASS = 'accounts.forms.SiunupForm'
+
+#SOCIALACCOUNT_FORMS = {
+#    'signup': 'accounts.forms.SignupForm'
+#}

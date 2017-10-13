@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
+from django.contrib.auth.base_user import AbstractBaseUser
 
 class Mentor(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
@@ -23,3 +24,20 @@ class Mentor(models.Model):
 
     class Meta:
         ordering = ['-id']
+
+
+def user_validator(value):
+    if not re.match(r'^([ㄱ-힣]{2,4})$', value):
+        raise forms.ValidationError('이름이 잘못되었습니다.')
+
+class MyUser(AbstractBaseUser):
+    username = models.CharField(max_length = 10, verbose_name='이름', validators='user_validator', default='홍길동')
+    nickname = models.CharField(max_length = 20, verbose_name='닉네임', unique=True)
+    email = models.EmailField(verbose_name='E-mail', unique=True)
+
+    USERNAME_FIELD = 'nickname'
+
+    def signup(self, request, user):
+        user.username = self.cleaned_data['username']
+        user.nickname = self.cleaned_data['nickname']
+        user.email = self.cleaned_data['email']

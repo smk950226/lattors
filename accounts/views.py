@@ -5,16 +5,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login as auth_login
 from allauth.socialaccount.models import SocialApp
 from allauth.socialaccount.templatetags.socialaccount import get_providers
-from .forms import MentorForm
+from allauth.socialaccount.views import SignupView
+from .forms import MentorForm, SignupForm
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(settings.LOGIN_URL)
     else:
-        form = UserCreationForm()
+        form = SignupForm()
     return render(request, 'accounts/signup_form.html', {
         'form': form,
         })
@@ -50,3 +51,9 @@ def admin_mentor(request):
     return render(request, 'accounts/admin_mentor_form.html', {
         'form': form,
     })
+
+class MySignupView(SignupView):
+    template_name = 'accounts/signup_form.html'
+
+
+mysignup = MySignupView.as_view()

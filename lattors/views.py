@@ -78,3 +78,5 @@ def act_comma(request):
 
 def act_photo(request):
     return render(request, 'lattors/act_photo.html')
+
+talk_mentor = ListView.as_view
