@@ -1,0 +1,47 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-md bg-white">
+    <div class="container">						    
+        <div class="page-tittle-head display-block text-center">
+            <h1 class="font-size-45 font-weight-light ls-1-5">회원가입</h1>
+            <p>회원가입을 위해 아래의 항목을 작성해 주세요.</p>
+        </div>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="mrg-btm-30 text-center">회원가입 양식</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+
+                {% for field in form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <span>{{ form.username.label_tag }}</span>
+                        <span>{{ form.username }}</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <span>{{ form.nickname.label_tag }}</span>
+                        <span>{{ form.nickname }}</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input class="btn btn-md btn-dark" type="submit" value="가입하기">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

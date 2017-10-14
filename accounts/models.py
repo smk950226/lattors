@@ -33,11 +33,5 @@ def user_validator(value):
 class MyUser(AbstractBaseUser):
     username = models.CharField(max_length = 10, verbose_name='이름', validators='user_validator', default='홍길동')
     nickname = models.CharField(max_length = 20, verbose_name='닉네임', unique=True)
-    email = models.EmailField(verbose_name='E-mail', unique=True)
 
     USERNAME_FIELD = 'nickname'
-
-    def signup(self, request, user):
-        user.username = self.cleaned_data['username']
-        user.nickname = self.cleaned_data['nickname']
-        user.email = self.cleaned_data['email']
