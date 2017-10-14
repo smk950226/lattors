@@ -4,6 +4,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 from django.contrib.auth.base_user import AbstractBaseUser
 
+#공과대학 등 단과대 넣기, 지역넣기
 class Mentor(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=100, verbose_name='이름')
@@ -33,5 +34,6 @@ def user_validator(value):
 class MyUser(AbstractBaseUser):
     username = models.CharField(max_length = 10, verbose_name='이름', validators='user_validator', default='홍길동')
     nickname = models.CharField(max_length = 20, verbose_name='닉네임', unique=True)
+    email = models.EmailField(verbose_name='E-mail', unique=True)
 
     USERNAME_FIELD = 'nickname'

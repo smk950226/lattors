@@ -155,3 +155,13 @@ ACCOUNT_SIGN_UP_FORM_CLASS = 'accounts.forms.SignupForm'
 #SOCIALACCOUNT_FORMS = {
 #    'signup': 'accounts.forms.SignupForm'
 #}
+
+ACCOUNT_USERNAME_MIN_LENGTH = 2
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+#ACCOUNT_USERNAME_VALIDATORS = ['accounts.models.user_validator',]  적용시 No exception message supplied 에러가 발생합니다.
+
+#ACCOUNT_USER_MODEL_USERNAME_FIELD = 'nickname'
+
+#AUTH_USER_MODEL = 'accounts.MyUser'

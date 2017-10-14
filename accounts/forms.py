@@ -18,11 +18,16 @@ class SignupForm(AllauthSignupForm):
         'class': 'form-control',
         'placeholder': '닉네임',
     }))
+    email = forms.EmailField(label = 'E-mail', required=True, widget = forms.EmailInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'E-mail',
+    }))
 
     class Meta:
         model = MyUser
-        fields = ['username', 'nickname']
+        fields = ['username', 'nickname', 'email']
 
     def signup(self, request, user):
         user.username = self.cleaned_data['username']
         user.nickname = self.cleaned_data['nickname']
+        user.email = self.cleaned_data['email']
