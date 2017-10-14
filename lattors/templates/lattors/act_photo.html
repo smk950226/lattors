@@ -26,7 +26,7 @@
                     <a href="#" class="filter-item" data-filter=".2014">2014's</a>
                 </div>	
                 <div class="portfolio isotope row col-3 gutter-sm mrg-top-50">
-                    <a href="#" class="folio-item 2017">
+                    <a href="" class="folio-item 2017" data-toggle="modal" data-target="#modal-large">
                         <div class="folio-style-2">
                             <div class="folio-image">
                                 <img class="img-responsive" src="{% static "images/comma/2017/act1.jpg" %}" alt="">
@@ -472,9 +472,37 @@
                 <div class="mrg-vertical-50 text-center">
                     <a href="#" class="btn btn-dark btn-md">Show More</a>
                 </div>
+                {% if user.is_superuser %}
+                    <div class="mrg-vertical-30 text-center">
+                        <a href="" class="btn btn-dark btn-lg">사진 추가하기</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 <!-- Portfolio End -->
+
+<!-- Modal Large -->
+<div class="modal fade modal-center" id="modal-large" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body no-pdd">
+                <div class="padding-30">
+                    <h3 class="mrg-vertical-15">Modal Large</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature.</p>
+                    <div class="text-right mrg-top-20">
+                        <a class="btn btn-md btn-default border-radius-4">Cancel</a>
+                        <a class="btn btn-md btn-theme border-radius-4">Save Change</a>
+                    </div>
+                </div>
+                <div class="modal-close">
+                    <button type="button" class="btn icon-btn-md icon-btn-round btn-dark lh-0" data-dismiss="modal"><i class="ei ei-close"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Content End-->
 {% endblock %}    
