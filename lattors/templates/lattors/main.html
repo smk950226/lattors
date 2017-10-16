@@ -186,7 +186,7 @@
             <div class="container-fluid">
                 <div class="portfolio isotope masonry row col-4 mrg-top-50">
                     {% for photo in photos %}
-                    <a href="#" class="folio-item">
+                    <a href="{{ photo.photo.url }}" class="folio-item lightbox-img">
                         <div class="folio-style-2">
                             <div class="folio-image">
                                 <img class="img-responsive" src="{{ photo.photo.url }}" alt="">

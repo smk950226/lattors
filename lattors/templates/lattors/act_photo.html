@@ -27,7 +27,7 @@
                 </div>	
                 <div class="portfolio isotope row col-3 gutter-sm mrg-top-50">
                     {% for photo in photos %}
-                    <a href="#" class="folio-item {{ photo.year }}">
+                    <a href="{{ photo.photo.url }}" class="folio-item {{ photo.year }} lightbox-img">
                         <div class="folio-style-2">
                             <div class="folio-image">
                                 <img class="img-responsive" src="{{ photo.photo.url }}" alt="" width="450px" height="300px">
