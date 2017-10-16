@@ -68,97 +68,21 @@
     </div>
     <div class="container-fluid">
         <div class="portfolio isotope masonry row col-4 mrg-top-50">
-            <a href="portfolio-single-1.html" class="folio-item">
+            {% for photo in photos %}
+            <a href="#" class="folio-item">
                 <div class="folio-style-2">
                     <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma1.png" %}" alt="" data-toggle="modal" data-target="#modal-large">
+                        <img class="img-responsive" src="{{ photo.photo.url }}" alt="">
                     </div><!-- /folio-image -->
                     <div class="overlay">
                         <div class="folio-caption">
-                            <h3 class="folio-tittle">충남외국어고등학교</h3>
-                            <p class="describe">2014.12.27</p>
+                            <h3 class="folio-tittle">{{ photo.site }}</h3>
+                            <p class="describe">{{ photo.date }}</p>
                         </div><!-- /folio-caption -->
                     </div><!-- /overlay -->
                 </div><!-- folio-style -->
             </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma2.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">서울신림고등학교</h3>
-                            <p class="describe">2014.11.03</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma7.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">충남외국어고등학교</h3>
-                            <p class="describe">2015.05.30</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma3.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">은평대전</h3>
-                            <p class="describe">2014.11.07</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma4.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">서울 나눔천사 청소년 축제</h3>
-                            <p class="describe">2014.10.18</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma5.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">서울금옥여자고등학교</h3>
-                            <p class="describe">2014.12.03</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
-            <a href="portfolio-single-1.html" class="folio-item">
-                <div class="folio-style-2">
-                    <div class="folio-image">
-                        <img class="img-responsive" src="{% static "images/comma/comma6.png" %}" alt="">
-                    </div><!-- /folio-image -->
-                    <div class="overlay">
-                        <div class="folio-caption">
-                            <h3 class="folio-tittle">서울홍익여자고등학교</h3>
-                            <p class="describe">2014.10.22</p>
-                        </div><!-- /folio-caption -->
-                    </div><!-- /overlay -->
-                </div><!-- folio-style -->
-            </a><!-- /folio-item -->
+            {% endfor %}
         </div><!-- /portfolio-->    
     </div>
     <div class="text-center mrg-top-30">

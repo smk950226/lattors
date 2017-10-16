@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mentors, Mentee, Major
+from .models import Mentors, Mentee, Major, ActPhoto
 
 @admin.register(Mentors)
 class MentorsAdmin(admin.ModelAdmin):
@@ -20,3 +20,9 @@ class MenteeAdmin(admin.ModelAdmin):
 @admin.register(Major)
 class MajorAdmin(admin.ModelAdmin):
     list_display = ['major']
+
+
+@admin.register(ActPhoto)
+class ActPhotoAdmin(admin.ModelAdmin):
+    list_display = ['id', 'site', 'year', 'date']
+    list_display_links = ['site']

@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^act/lattors/$',views.act_lattors, name='act_lattors'),
     url(r'^act/comma/$',views.act_comma, name='act_comma'),
     url(r'^act/photo/$',views.act_photo, name='act_photo'),
+    url(r'^act/photo/add$',views.act_photo_add, name='act_photo_add'),
     #url(r'^talk/mentor/$',views.talk_mentor, name='talk_mentor'),
     #url(r'^talk/mentee/$',views.talk_mentee, name='talk_mentee'),
 ]

@@ -4,15 +4,57 @@
 {% block content %}
 <!-- Page Tittle Start -->
 <section class="page-tittle page-tittle-lg parallax-bg dark-overlay">
-        <img class="parallax-img no-mobile-parallax" src="assets/images/bg-18.jpg" alt="" data-parallax='{"y": 150}'>
-        <div class="container">
-            <div class="page-tittle-head">
-                <h2>활동 사진 등록</h2>
-                <p>활동 사진을 등록해 주세요.</p>
-            </div>
+    <img class="parallax-img no-mobile-parallax" src="{% static "images/about.jpg" %}" alt="" data-parallax='{"y": 150}'>
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>활동 사진 등록</h2>
+            <p>활동 사진을 등록해 주세요.</p>
         </div>
-    </section>
-    <!-- Page Tittle End -->
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="mrg-btm-30 text-center">활동 사진 등록 양식</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+
+                {% for field in form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <span>{{ form.year.label_tag }}</span>
+                        <span>{{ form.year }}</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <span>{{ form.date.label_tag }}</span>
+                        <span>{{ form.date }}</span>
+                        <P>{{ form.date.help_text }}</P>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <span>{{ form.site.label_tag }}</span>
+                        <span>{{ form.site }}</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <span>{{ form.photo.label_tag }}</span>
+                        <span>{{ form.photo }}</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input class="btn btn-md btn-dark" type="submit" value="등록하기">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
     
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Mentors, Mentee
-from .forms import MentorsForm, MenteeForm
+from .models import Mentors, Mentee, ActPhoto
+from .forms import MentorsForm, MenteeForm, ActPhotoForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.db.models import F
@@ -8,9 +8,11 @@ from django.db.models import F
 def main(request):
     mentor1 = Mentors.objects.all().order_by('-hits')[:2][0]
     mentor2 = Mentors.objects.all().order_by('-hits')[:2][1]
+    photos = ActPhoto.objects.all().order_by('?')[:8]
     return render(request, 'lattors/main.html', {
         'mentor1': mentor1,
         'mentor2': mentor2,
+        'photos': photos
     })
 
 @login_required
@@ -74,9 +76,27 @@ def act_lattors(request):
     })
 
 def act_comma(request):
-    return render(request, 'lattors/act_comma.html')
+    photos = ActPhoto.objects.all().order_by('?')[:6]
+    return render(request, 'lattors/act_comma.html', {
+        'photos': photos
+    })
 
 def act_photo(request):
-    return render(request, 'lattors/act_photo.html')
+    photos = ActPhoto.objects.all()
+    return render(request, 'lattors/act_photo.html', {
+        'photos': photos,
+    })
+
+def act_photo_add(request):
+    if request.method == 'POST':
+        form = ActPhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            mentor = form.save()
+            return redirect('lattors:act_photo')
+    else:
+        form = ActPhotoForm()
+    return render(request, 'lattors/act_photo_add.html', {
+        'form': form,
+    })
 
 talk_mentor = ListView.as_view
