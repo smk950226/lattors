@@ -65,7 +65,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'benebros', 'templates')
+            os.path.join(BASE_DIR, 'benebros', 'templates'),
+            os.path.join(BASE_DIR, 'benebros', 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -152,9 +153,9 @@ SOCIALACCOUNT_AUTO_SIGNUP = False
 
 ACCOUNT_SIGN_UP_FORM_CLASS = 'accounts.forms.SignupForm'
 
-#SOCIALACCOUNT_FORMS = {
-#    'signup': 'accounts.forms.SignupForm'
-#}
+SOCIALACCOUNT_FORMS = {
+    'signup': 'accounts.forms.SignupForm'
+}
 
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 

@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^signup/$',views.signup, name='signup'),
     url(r'^profile/$',views.profile, name='profile'),
     url(r'^admin/mentor/$',views.admin_mentor, name='admin_mentor'),
-    url(r'^social/signup/$',views.mysignup, name='mysignup')
+    #url(r'^social/signup/$',views.mysignup, name='mysignup')
 ]

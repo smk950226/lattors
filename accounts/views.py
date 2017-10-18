@@ -52,9 +52,9 @@ def admin_mentor(request):
         'form': form,
     })
 
-class MySignupView(SignupView):
-    form_class = SignupForm
-    template_name = 'accounts/socialsignup_form.html'
+#class MySignupView(SignupView):
+#    form_class = SignupForm
+#    template_name = 'accounts/socialsignup_form.html'
 
 
-mysignup = MySignupView.as_view()
+#mysignup = MySignupView.as_view()
