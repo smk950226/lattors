@@ -3,6 +3,7 @@ from django.conf import settings
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import User
 
 #공과대학 등 단과대 넣기, 지역넣기
 class Mentor(models.Model):
