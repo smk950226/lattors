@@ -24,31 +24,21 @@ class SignupForm(AllauthSignupForm):
     }))
 
     class Meta:
-        model = Profile
         fields = ['username', 'nickname', 'email']
 
     def signup(self, request, user):
         user.username = self.cleaned_data['username']
         user.nickname = self.cleaned_data['nickname']
         user.email = self.cleaned_data['email']
+    
+    def save(self):
+        user = super().save()
 
+        profile = Profile.objects.create(
+            user = user,
+            name = self.cleaned_data['username'],
+            nickname = self.cleaned_data['nickname'],
+            emailaddress = self.cleaned_data['email'],
+        )
 
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['name', 'nickname', 'emailaddress']
-        widgets = {
-            'name': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': '이름'
-            }),
-            'nickname': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': '닉네임',
-            }),
-            'emailaddress': forms.EmailInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'E-mail'
-            }),
-        }
-
+        return user
