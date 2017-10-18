@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mentor,MyUser
+from .models import Mentor,Profile
 
 @admin.register(Mentor)
 class MentorAdmin(admin.ModelAdmin):
@@ -9,8 +9,8 @@ class MentorAdmin(admin.ModelAdmin):
     list_filter = ['school','major','grade']
 
 
-@admin.register(MyUser)
-class MyUserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'nickname', 'email']
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['name', 'nickname', 'emailaddress']
     list_display_links = ['nickname']
     search_fields = ['nickname']

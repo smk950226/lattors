@@ -151,7 +151,7 @@ NAVER_CLIENT_ID='JpoZ92Akefdoiqe3xJmz'
 
 SOCIALACCOUNT_AUTO_SIGNUP = False
 
-ACCOUNT_SIGN_UP_FORM_CLASS = 'accounts.forms.SignupForm'
+#ACCOUNT_SIGN_UP_FORM_CLASS = 'accounts.forms.SignupForm'
 
 SOCIALACCOUNT_FORMS = {
     'signup': 'accounts.forms.SignupForm'

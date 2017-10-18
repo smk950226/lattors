@@ -31,9 +31,8 @@ def user_validator(value):
     if not re.match(r'^([ㄱ-힣]{2,4})$', value):
         raise forms.ValidationError('이름이 잘못되었습니다.')
 
-class MyUser(AbstractBaseUser):
-    username = models.CharField(max_length = 10, verbose_name='이름', validators='user_validator', default='홍길동')
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    name = models.CharField(max_length = 10, verbose_name='이름', validators='user_validator', default='홍길동')
     nickname = models.CharField(max_length = 20, verbose_name='닉네임', unique=True)
-    email = models.EmailField(verbose_name='E-mail', unique=True)
-
-    USERNAME_FIELD = 'nickname'
+    emailaddress = models.EmailField(verbose_name='E-mail', unique=True)
