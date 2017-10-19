@@ -2,6 +2,8 @@ from django.db import models
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 from django.conf import settings
+from accounts.models import Profile
+from django.urls import reverse
 
 class Mentors(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,blank=True, null=True)
@@ -71,3 +73,24 @@ class ActPhoto(models.Model):
     ))
     date = models.CharField(verbose_name='활동 날짜', help_text='0000.00.00과 같이 입력해 주세요.', max_length=20)
     site = models.CharField(verbose_name='활동 장소', max_length=100)
+
+
+def min_length_3_validator(value):
+    if len(value) < 3:
+        raise forms.ValidationError('3글자 이상 입력해 주세요.')
+
+class TalkMentor(models.Model):
+    writer = models.ForeignKey(Profile)
+    nickname = models.CharField(max_length=20)
+    title = models.CharField(max_length = 100, validators=[min_length_3_validator], verbose_name='제목')
+    content = models.TextField(verbose_name='내용')
+    hits = models.PositiveIntegerField(default=0, verbose_name='조회수')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-id']
+
+    def get_absolute_url(self):
+        return reverse('lattors:talk_mentor_detail', args=[self.id])
+

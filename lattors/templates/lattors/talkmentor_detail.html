@@ -1,0 +1,77 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg parallax-bg dark-overlay">
+    <img class="parallax-img no-mobile-parallax" src="{% static "images/community.jpg" %}" alt="" data-parallax='{"y": 150}'>
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>멘토의 진솔한 이야기</h2>
+            <p>멘토분들의 다양한 이야기를 들어보세요.</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
+            <li class="breadcrumb-item"><a href="#">멘티의 궁금한 이야기</a></li>
+        </ol>
+    </div>
+</section>
+
+<section class="section-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-10 col-md-offset-1 text-center mrg-btm-50">
+                    <h1>{{ article.title }}</h1>
+                </div>
+                <div class="col-md-2 col-md-offset-10">
+                    <p>by. {{ article.nickname }}</p>
+                </div>
+                <table class="table table-bordered">
+                    <div class="col-md-12">
+                        <p class="text-black">{{ article.content | linebreaksbr }}</P>
+                    </div>
+                </table>
+                <div class="col-md-2">
+                    <p>조회수 : {{ article.hits }}</p>
+                </div>
+                <div class="col-md-3 col-md-offset-4">
+                    <p>작성일 : {{ article.created_at }}</p>
+                </div>
+                {% if article.updated_at != article.created_at %}
+                <div class="col-md-3">
+                    <p>수정일 : {{ article.updated_at }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            {% if previous_article %}
+            <div class="col-md-2">
+                <a href="{% url "lattors:talk_mentor_detail" previous_article.id %}" class="btn btn-dark btn-md">이전글</a>
+            </div>
+            {% endif %}
+            <div class="col-md-2">
+                <a href="{% url "lattors:talk_mentor" %}" class="btn btn-dark btn-md">목록으로</a>
+            </div>
+            {% if request.user.profile == article.writer or request.user.is_superuser %}
+            <div class="col-md-2">
+                <a href="{% url "lattors:talk_mentor_edit" article.id %}" class="btn btn-dark btn-md">수정하기</a>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url "lattors:talk_mentor_delete" article.id %}" class="btn btn-dark btn-md">삭제하기</a>
+            </div>
+            {% endif %}
+            {% if next_article %}
+            <div class="col-md-2">
+                <a href="{% url "lattors:talk_mentor_detail" next_article.id %}" class="btn btn-dark btn-md">다음글</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+<!-- Page Tittle End --> <!-- 조회수 띄우기, 수정, 삭제버튼 -->
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg parallax-bg dark-overlay">
+    <img class="parallax-img no-mobile-parallax" src="{% static "images/community.jpg" %}" alt="" data-parallax='{"y": 150}'>
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>멘토의 진솔한 이야기</h2>
+            <p>멘토분들의 다양한 이야기를 들어보세요.</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
+            <li class="breadcrumb-item"><a href="#">멘티의 궁금한 이야기</a></li>
+        </ol>
+    </div>
+</section>
+
+<section class="section-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 text-center">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <h2>정말 삭제하시겠습니까?</h2>
+
+                        <input type="submit" value="삭제" class="btn btn-dark btn-md">
+                        <a href="{{ talkmentor.get_absolute_url }}" class="btn btn-dark btn-md">취소</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Page Tittle End --> <!-- 조회수 띄우기, 수정, 삭제버튼 -->
+
+{% endblock %}

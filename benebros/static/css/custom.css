@@ -191,3 +191,6 @@
 .comp_intro_list {
   display: inline;
 }
+.text-black {
+  color: black !important;
+}

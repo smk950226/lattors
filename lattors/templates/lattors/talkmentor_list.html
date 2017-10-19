@@ -1,0 +1,134 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg parallax-bg dark-overlay">
+    <img class="parallax-img no-mobile-parallax" src="{% static "images/community.jpg" %}" alt="" data-parallax='{"y": 150}'>
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>멘토의 진솔한 이야기</h2>
+            <p>멘토분들의 다양한 이야기를 들어보세요.</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
+            <li class="breadcrumb-item"><a href="#">멘티의 궁금한 이야기</a></li>
+        </ol>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="shop-sidebar sidebar-left">
+                            <div class="widget widget-search">
+                                <h3 class="widget-tittle">Search</h3>
+                                <label class="input-wrapper">
+                            <input class="form-control" type="text" placeholder="Search">
+                            <a href="" class="btn inline-submit mrg-top-5"><i class="ei ei-search"></i></a>
+                        </label>
+                            </div>
+                            <div class="widget widget-link">
+                                <h3 class="widget-tittle">Categories</h3>
+                                <ul class="link">
+                                    <li><a href="#"><i class="ei ei-shirt pdd-right-10"></i> Cloths</a></li>
+                                    <li><a href="#"><i class="ei ei-karate pdd-right-10"></i> Skirts</a></li>
+                                    <li><a href="#"><i class="ei ei-backpack pdd-right-10"></i> Bag Wears</a></li>
+                                    <li><a href="#"><i class="ei ei-high-heels pdd-right-10"></i> Shoes Wears</a></li>
+                                    <li><a href="#"><i class="ei ei-football pdd-right-10"></i> Sport Wears</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-link dotted">
+                                <h3 class="widget-tittle">Brands</h3>
+                                <ul class="link">
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check1" checked="">
+                                            <label class="font-size-16" for="check1"><span class="text-gray">Adidas</span></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check2">
+                                            <label class="font-size-16" for="check2"><span class="text-gray">Nike</span></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check3">
+                                            <label class="font-size-16" for="check3"><span class="text-gray">Levi's</span></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check4">
+                                            <label class="font-size-16" for="check4"><span class="text-gray">Calvin Klein</span></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check5">
+                                            <label class="font-size-16" for="check5"><span class="text-gray">Kappa</span></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox no-mrg-vertical">
+                                            <input type="checkbox" name="group1" id="check6">
+                                            <label class="font-size-16" for="check6"><span class="text-gray">Puma</span></label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-about">
+                                <h3 class="widget-tittle">Price Range</h3>
+                                <div class="mrg-btm-10">
+                                    <input class="form-control inline-block width-30" placeholder="$ 0">
+                                    <span class="pdd-horizon-15 text-gray">~</span>
+                                    <input class="form-control inline-block width-30" placeholder="$ 9,999">
+                                </div>
+                            </div>
+                            <button class="btn btn-md btn-dark">Reset Filter</button>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>멘티의 <span class="theme-color">진솔한</span> 이야기</h2>
+                        <div class="card padding-30 mrg-top-20">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>글번호</th>
+                                            <th>작성자</th>
+                                            <th>제목</th>
+                                            <th>조회수</th>
+                                            <th>작성일</th>
+                                        </tr>
+                                    </thead>
+                                    {% for article in talkmentor_list %}
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ article.id }}</td>
+                                            <td>{{ article.nickname }}</td>
+                                            <td><a href="{% url "lattors:talk_mentor_detail" article.id %}">{{ article.title }}</a></td>
+                                            <td>{{ article.hits }}</td>
+                                            <td>{{ article.created_at }}</td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="btn btn-dark btn-md" href="{% url "lattors:talk_mentor_new" %}">새 글쓰기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
