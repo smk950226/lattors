@@ -2,6 +2,7 @@ from django import forms
 from .models import Mentor,Profile
 from django.contrib.auth.forms import UserCreationForm
 from allauth.socialaccount.forms import SignupForm as AllauthSignupForm
+from allauth.socialaccount.adapter import get_adapter
 
 class MentorForm(forms.ModelForm):
     class Meta:
@@ -24,10 +25,22 @@ class SignupForm(AllauthSignupForm):
     }))
 
     class Meta:
-        model = Profile
         fields = ['username', 'nickname', 'email']
 
     def signup(self, request, user):
         user.username = self.cleaned_data['username']
         user.nickname = self.cleaned_data['nickname']
         user.email = self.cleaned_data['email']
+    
+    def save(self,request):
+        adapter = get_adapter(request)
+        user = adapter.save_user(request, self.sociallogin, form=self)
+
+        profile = Profile.objects.create(
+            user = user,
+            name = self.cleaned_data['username'],
+            nickname = self.cleaned_data['nickname'],
+            emailaddress = self.cleaned_data['email'],
+        )
+
+        return user
