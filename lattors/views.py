@@ -9,13 +9,17 @@ from django.urls import reverse_lazy
 from accounts.models import Mentor
 
 def main(request):
-    mentor1 = Mentors.objects.all().order_by('-hits')[:2][0]
-    mentor2 = Mentors.objects.all().order_by('-hits')[:2][1]
+    mentor1 = Mentor.objects.all().order_by('-hits')[:2][0]
+    mentor2 = Mentor.objects.all().order_by('-hits')[:2][1]
+    newmentor1 = Mentor.objects.all().order_by('-id')[:2][0]
+    newmentor2 = Mentor.objects.all().order_by('-id')[:2][1]
     photos = ActPhoto.objects.all().order_by('?')[:8]
     return render(request, 'lattors/main.html', {
         'mentor1': mentor1,
         'mentor2': mentor2,
-        'photos': photos
+        'newmentor1': newmentor1,
+        'newmentor2': newmentor2,
+        'photos': photos,
     })
 
 @login_required
@@ -95,6 +99,24 @@ talk_mentor = ListView.as_view(model=TalkMentor, paginate_by=20)
 
 @login_required
 def talk_mentor_new(request):
+    if request.user.profile.adminmentor == False:
+        if request.user.is_superuser:
+            if request.method == 'POST':
+                form = TalkMentorForm(request.POST)
+                if form.is_valid():
+                    article = form.save(commit=False)
+                    article.writer = request.user.profile
+                    article.nickname = request.user.profile.nickname
+                    article.save()
+                    return redirect(article)
+            else:
+                form = TalkMentorForm()
+            return render(request, 'lattors/talkmentor_form.html', {
+                'form': form,
+            })
+        else:
+            return redirect('lattors:talk_mentor_reject')
+
     if request.method == 'POST':
         form = TalkMentorForm(request.POST)
         if form.is_valid():
@@ -121,8 +143,29 @@ def talk_mentor_detail(request, id):
         'previous_article': previous_article,
     })
 
+@login_required
 def talk_mentor_edit(request, id):
     article = get_object_or_404(TalkMentor, id=id)
+
+    if request.user.profile.adminmentor == False:
+        if request.user.is_superuser:
+            if request.method == 'POST':
+                form = TalkMentorForm(request.POST, instance = article)
+                if form.is_valid():
+                    article = form.save(commit=False)
+                    article.writer = request.user.profile
+                    article.nickname = request.user.profile.nickname
+                    article.save()
+                    return redirect(article)
+            else:
+                form = TalkMentorForm(instance = article)
+
+            return render(request, 'lattors/talkmentor_edit.html', {
+                'form': form,
+            })
+        else:
+            return redirect('lattors:talk_mentor_reject')
+
     if request.method == 'POST':
         form = TalkMentorForm(request.POST, instance = article)
         if form.is_valid():
@@ -138,12 +181,33 @@ def talk_mentor_edit(request, id):
         'form': form,
     })
 
+def talk_mentor_reject(request):
+    return render(request, 'lattors/talkmentor_reject.html')
+
 talk_mentor_delete = DeleteView.as_view(model = TalkMentor, success_url=reverse_lazy('lattors:talk_mentor'), pk_url_kwarg='id')
 
 talk_mentee = ListView.as_view(model = TalkMentee, paginate_by = 20)
 
 @login_required
 def talk_mentee_new(request):
+    if request.user.profile.adminmentor == True:
+        if request.user.is_superuser:
+            if request.method == 'POST':
+                form = TalkMenteeForm(request.POST)
+                if form.is_valid():
+                    article = form.save(commit=False)
+                    article.writer = request.user.profile
+                    article.nickname = request.user.profile.nickname
+                    article.save()
+                    return redirect(article)
+            else:
+                form = TalkMenteeForm()
+            return render(request, 'lattors/talkmentee_form.html', {
+                'form': form,
+            })
+        else:
+            return redirect('lattors:talk_mentee_reject')
+
     if request.method == 'POST':
         form = TalkMenteeForm(request.POST)
         if form.is_valid():
@@ -170,8 +234,29 @@ def talk_mentee_detail(request, id):
         'previous_article': previous_article,
     })
 
+@login_required
 def talk_mentee_edit(request, id):
     article = get_object_or_404(TalkMentee, id=id)
+
+    if request.user.profile.adminmentor == True:
+        if request.user.is_superuser:
+            if request.method == 'POST':
+                form = TalkMenteeForm(request.POST, instance = article)
+                if form.is_valid():
+                    article = form.save(commit=False)
+                    article.writer = request.user.profile
+                    article.nickname = request.user.profile.nickname
+                    article.save()
+                    return redirect(article)
+            else:
+                form = TalkMenteeForm(instance = article)
+
+            return render(request, 'lattors/talkmentee_edit.html', {
+                'form': form,
+            })
+        else:
+            return redirect('lattors:talk_mentee_reject')
+
     if request.method == 'POST':
         form = TalkMenteeForm(request.POST, instance = article)
         if form.is_valid():
@@ -186,5 +271,8 @@ def talk_mentee_edit(request, id):
     return render(request, 'lattors/talkmentee_edit.html', {
         'form': form,
     })
+
+def talk_mentee_reject(request):
+    return render(request, 'lattors/talkmentee_reject.html')
 
 talk_mentee_delete = DeleteView.as_view(model = TalkMentee, success_url=reverse_lazy('lattors:talk_mentee'), pk_url_kwarg='id')

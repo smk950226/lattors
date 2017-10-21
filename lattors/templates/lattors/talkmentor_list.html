@@ -122,9 +122,11 @@
                                 </table>
                             </div>
                         </div>
+                        {% if request.user.profile.mentor or request.user.is_superuser %}
                         <div class="text-center">
                             <a class="btn btn-dark btn-md" href="{% url "lattors:talk_mentor_new" %}">새 글쓰기</a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

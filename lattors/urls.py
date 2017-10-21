@@ -21,9 +21,11 @@ urlpatterns = [
     url(r'^talk/mentor/(?P<id>\d+)/$',views.talk_mentor_detail, name='talk_mentor_detail'),
     url(r'^talk/mentor/(?P<id>\d+)/edit/$',views.talk_mentor_edit, name='talk_mentor_edit'),
     url(r'^talk/mentor/(?P<id>\d+)/delete/$',views.talk_mentor_delete, name='talk_mentor_delete'),
+    url(r'^talk/mentor/reject/$',views.talk_mentor_reject, name='talk_mentor_reject'),
     url(r'^talk/mentee/$',views.talk_mentee, name='talk_mentee'),
     url(r'^talk/mentee/new/$',views.talk_mentee_new, name='talk_mentee_new'),
     url(r'^talk/mentee/(?P<id>\d+)/$',views.talk_mentee_detail, name='talk_mentee_detail'),
     url(r'^talk/mentee/(?P<id>\d+)/edit/$',views.talk_mentee_edit, name='talk_mentee_edit'),
     url(r'^talk/mentee/(?P<id>\d+)/delete/$',views.talk_mentee_delete, name='talk_mentee_delete'),
+    url(r'^talk/mentee/reject/$',views.talk_mentee_reject, name='talk_mentee_reject'),
 ]

@@ -121,6 +121,57 @@
         </section>
         <!-- About End -->
         
+        <!-- About Start -->
+        <section id="about" class="section-1">
+                <div class="container">
+                    <div class="content-block-1 row">
+                        <div class="col-md-6">
+                            <div class="text-content">
+                                <h2 class="heading-1" style="font-family: 'Hanna';">새로운 멘토를 <span class="theme-color" style="font-family: 'Hanna';">소개합니다</span></h2>
+                                <p><span class="theme-color" style="font-weight: bold;">학교 :</span> {{ newmentor1.school }}</p>
+                                <p><span class="theme-color" style="font-weight: bold;">전공 :</span> {{ newmentor1.major }}</p>
+                                {% if newmentor1.sub_major %}
+                                <p><span class="theme-color" style="font-weight: bold;">부전공 : </span>{{ newmentor1.sub_major }}</p>
+                                {% endif %}
+                                <p><span class="theme-color" style="font-weight: bold;">주소 :</span> {{ newmentor1.addr }}</p>
+                                <p>{{ newmentor1.intro|linebreaksbr }}</p>
+                            </div><!-- /text-content -->
+                            <div class="continue-reading col-md-offset-10">
+                                <a class="btn btn-dark-inverse" href="{% url "lattors:mentor_detail" newmentor1.id %}"><i class="ei ei-right-arrow"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-style-1" >
+                                <img class="img-responsive no-mobile-parallax" src="{{ newmentor1.photo.url }}" alt="" data-parallax='{"y": 30}' width="650px">
+                            </div><!-- img-style-1 -->
+                        </div>
+                    </div>
+                    
+                    <div class="content-block-1 row">
+                        <div class="col-md-6">
+                            <div class="img-style-1 left" >
+                                <img class="img-responsive no-mobile-parallax" src="{{ newmentor2.photo.url }}" alt="" data-parallax='{"y": -30}' width="650px">
+                            </div><!-- img-style-1 -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-content-right">
+                                <h2 class="heading-1 right" style="font-family: 'Hanna';">새로운 멘토를 <span class="theme-color" style="font-family: 'Hanna';">소개합니다</span></h2>
+                                <p><span class="theme-color" style="font-weight: bold;">학교 :</span> {{ newmentor2.school }}</p>
+                                <p><span class="theme-color" style="font-weight: bold;">전공 :</span> {{ newmentor2.major }}</p>
+                                {% if newmentor2.sub_major %}
+                                <p><span class="theme-color" style="font-weight: bold;">부전공 : </span>{{ newmentor2.sub_major }}</p>
+                                {% endif %}
+                                <p><span class="theme-color" style="font-weight: bold;">주소 :</span> {{ newmentor2.addr }}</p>
+                                <p>{{ newmentor2.intro|linebreaksbr }}</p>
+                            </div><!-- /padding -->
+                            <div class="continue-reading col-md-offset-10">
+                                <a class="btn btn-dark-inverse" href="{% url "lattors:mentor_detail" newmentor2.id %}"><i class="ei ei-right-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About End -->
         
         <!-- Features Start -->
         <section class="section-5">

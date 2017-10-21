@@ -1,0 +1,27 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg parallax-bg dark-overlay">
+    <img class="parallax-img no-mobile-parallax" src="{% static "images/community.jpg" %}" alt="" data-parallax='{"y": 150}'>
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2>멘티의 궁금한 이야기</h2>
+            <p>멘티분들의 다양한 궁금증을 이야기해 보세요.</p>
+        </div>
+        <ol class="breadcrumb pull-right mrg-top-30">
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentee" %}">멘티의 궁금한 이야기</a></li>
+        </ol>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1">
+    <div class="container-fluid text-center">
+        <h2>멘토로 등록되어 있으면 게시글을 작성할 수 없습니다.</h2>
+        <span><a href="{% url "lattors:talk_mentor" %}" class="btn btn-dark btn-md">목록으로</a></span>
+    </div>
+</section>
+{% endblock %}
