@@ -16,6 +16,7 @@ class MentorForm(forms.ModelForm):
             'addr': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': '주소',
+                'size': '100'
             }),
             'school': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -40,6 +41,7 @@ class MentorForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': '자기소개',
                 'rows': '10',
+                'cols': '150'
             })
         }
 

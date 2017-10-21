@@ -68,11 +68,11 @@ def act_list(request):
 
 def act_lattors(request):
     return render(request, 'lattors/act_lattors.html', {
-        'mentors': Mentors.objects.all().order_by('-id')[:3],
+        'mentors': Mentor.objects.all().order_by('-id')[:3],
     })
 
 def act_comma(request):
-    photos = ActPhoto.objects.all().order_by('?')[:6]
+    photos = ActPhoto.objects.all().order_by('?')[:8]
     return render(request, 'lattors/act_comma.html', {
         'photos': photos
     })
