@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^signup/$',views.signup, name='signup'),
     url(r'^profile/$',views.profile, name='profile'),
     url(r'^admin/mentor/$',views.admin_mentor, name='admin_mentor'),
+    url(r'^admin/mentor/reject/$',views.admin_mentor_reject, name='admin_mentor_reject'),
     #url(r'^social/signup/$',views.mysignup, name='mysignup')
 ]

@@ -1,0 +1,22 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-md bg-white">
+    <div class="container">						    
+        <div class="page-tittle-head display-block text-center">
+            <h1 class="font-size-45 font-weight-light ls-1-5">멘토 등록</h1>
+            <p>Lattors의 멘토로 활동하기 위해서 아래의 양식을 작성해주세요.</p>
+        </div>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<section class="section-1">
+    <div class="container text-center">
+        <h2 class="mrg-btm-30">이미 멘토로 등록하셨습니다.</h2>
+        <a href="{% url "lattors:mentor_list" %}" class="btn btn-dark btn-md">멘토목록 보기</a>
+    </div>
+</section>
+
+{% endblock %}

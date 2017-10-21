@@ -111,7 +111,9 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Lattors 신청</a></li>
                                     <li><a href="#">COM.MA 신청</a></li>
+                                    {% if not request.user.profile.mentor %}
                                     <li><a href="{% url "admin_mentor" %}">멘토 등록하기</a></li>
+                                    {% endif %}
                                 </ul>
                             </li>
                         </ul>

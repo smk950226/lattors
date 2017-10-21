@@ -1,0 +1,106 @@
+{% extends "lattors/layout.html" %}
+{% load staticfiles %}
+{% load imagekit %}
+
+{% block content %}
+<!-- Page Tittle Start -->
+<section class="page-tittle page-tittle-lg kenburn-bg dark-overlay">
+    <img class="kenburn-img" src="{% static "images/coffee.jpg" %}" alt="">
+    <div class="container">
+        <div class="page-tittle-head">
+            <h2 style="font-weight: bold;">멘토를 소개합니다</h2>
+            <p>다양한 멘토분들을 알아보세요. 그리고 여러분에게 알맞는 멘토와 커피한잔을 나누세요.</p>
+        </div>
+    </div>
+</section>
+<!-- Page Tittle End -->
+
+<!-- Blog Start -->
+<section class="section-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="blog-sidebar sidebar-left">
+                            <div class="widget widget-search">
+                                <h3 class="widget-tittle">Search</h3>
+                                <label class="input-wrapper">
+                                    <input class="form-control material-input" type="text" placeholder="Search">
+                                    <a href="" class="btn inline-submit mrg-top-5"><i class="ei ei-search"></i></a>
+                                </label>
+                            </div>
+                            <div class="widget widget-link dotted">
+                                <h3 class="widget-tittle">Archives</h3>
+                                <ul class="link">
+                                    <li><a href="#">August 2016</a></li>
+                                    <li><a href="#">September 2016</a></li>
+                                    <li><a href="#">October 2016</a></li>
+                                    <li><a href="#">November 2016</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-about">
+                                <h3 class="widget-tittle">인기많은 멘토</h3>
+                                <div class="swiper-single swiper-container no-pdd-btm">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="blog blog-list">
+                            {% for mentor in mentor_list %}
+                            <div class="blog-item">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="blog-media">
+                                            <a href="{% url "lattors:mentor_detail" mentor.id %}"><img class="img-responsive" src="{{ mentor.photo.url }}" alt="" width="600px" height="400px"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="blog-content">
+                                            <h3 class="blog-tittle"><a href="{% url "lattors:mentor_detail" mentor.id %}"><h2 style="font-weight: bold;">{{ mentor.name }}</h2></a></h3>
+                                            <div class="blog-meta">
+                                                <span>{{ mentor.school }}</span>
+                                                <span>{{ mentor.major }}</span>
+                                            </div>
+                                            <p class="blog-article">{{ mentor.intro|linebreaksbr }}</p>
+                                            <div class="blog-action">
+                                                <span class="comments"><a href="javascript:void(0);"><i class="ei ei-show"></i> {{ mentor.hits }}</a></span>
+                                                <span class="likes"><a href="javascript:void(0);"><i class="ei ei-heart"></i> 168</a></span>
+                                            </div>
+                                            <div class="continue-reading">
+                                                <a class="btn btn-dark-inverse" href="{% url "lattors:mentor_detail" mentor.id %}"><i class="ei ei-right-arrow"></i></a>
+                                            </div>			
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center mrg-top-50">
+                            <p>원하는 멘토가 없나요? 그렇다면 원하는 멘토를 신청해 보세요.<br/>
+                            원하는 멘토를 찾아드립니다.</p>
+                            <button class="btn btn-dark btn-md">멘토 신청하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog End -->
+{% endblock %}

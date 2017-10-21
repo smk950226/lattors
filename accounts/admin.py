@@ -11,6 +11,6 @@ class MentorAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['name', 'nickname', 'emailaddress']
+    list_display = ['name', 'nickname', 'emailaddress', 'adminmentor']
     list_display_links = ['nickname']
     search_fields = ['nickname']

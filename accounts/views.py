@@ -39,11 +39,18 @@ def login(request):
 
 @login_required
 def admin_mentor(request):
+    if request.user.profile.adminmentor:
+        return redirect('admin_mentor_reject')
+
     if request.method == 'POST':
         form = MentorForm(request.POST, request.FILES)
         if form.is_valid():
             mentor = form.save(commit=False)
-            mentor.user = request.user
+            mentor.user = request.user.profile
+            mentor.name = request.user.profile.name
+            profile = request.user.profile
+            profile.adminmentor = True
+            profile.save()
             mentor.save()
             return redirect('root')
     else:
@@ -51,6 +58,9 @@ def admin_mentor(request):
     return render(request, 'accounts/admin_mentor_form.html', {
         'form': form,
     })
+
+def admin_mentor_reject(request):
+    return render(request, 'accounts/admin_mentor_reject.html')
 
 #class MySignupView(SignupView):
 #    form_class = SignupForm

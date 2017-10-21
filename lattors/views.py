@@ -6,6 +6,7 @@ from django.views.generic import ListView, DeleteView
 from django.db.models import F
 from accounts.models import Profile
 from django.urls import reverse_lazy
+from accounts.models import Mentor
 
 def main(request):
     mentor1 = Mentors.objects.all().order_by('-hits')[:2][0]
@@ -19,18 +20,7 @@ def main(request):
 
 @login_required
 def admin_mentor(request):
-    if request.method == 'POST':
-        form = MentorsForm(request.POST, request.FILES)
-        if form.is_valid():
-            mentor = form.save(commit=False)
-            mentor.user = request.user
-            mentor.save()
-            return redirect('root')
-    else:
-        form = MentorsForm()
-    return render(request, 'lattors/admin_mentor_form.html', {
-        'form': form,
-    })
+    return redirect('admin_mentor')
 
 @login_required
 def admin_mentee(request):
@@ -60,11 +50,11 @@ def member(request):
 def contact(request):
     return render(request, 'lattors/comp_contact.html')
 
-mentors_list = ListView.as_view(model=Mentors, paginate_by=10)
+mentors_list = ListView.as_view(model=Mentor, paginate_by=10)
 
 def mentor_detail(request, id):
-    Mentors.objects.filter(id=id).update(hits=F('hits')+1)
-    mentor = get_object_or_404(Mentors, id=id)
+    Mentor.objects.filter(id=id).update(hits=F('hits')+1)
+    mentor = get_object_or_404(Mentor, id=id)
     return render(request, 'lattors/mentor_detail.html', {
         'mentor': mentor,
     })

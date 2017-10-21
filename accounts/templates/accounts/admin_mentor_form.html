@@ -30,25 +30,35 @@
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <span>{{ form.tel.label_tag }}</span>
+                        <span>{{ form.tel }}</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control"  placeholder="Phone Number">
+                        <span>{{ form.school.label_tag }}</span>
+                        <span>{{ form.school }}</span>
                     </div>
                     <div class="form-group col-md-12">
-                        <input type="text" class="form-control" placeholder="Address">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" class="form-control" placeholder="University">
+                        <span>{{ form.addr.label_tag }}</span>
+                        <span>{{ form.addr }}</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Major">
+                        <span>{{ form.major.label_tag }}</span>
+                        <span>{{ form.major }}</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control"  placeholder="Sub Major">
+                        <span>{{ form.sub_major.label_tag }}</span>
+                        <span>{{ form.sub_major }}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span>{{ form.grade.label_tag }}</span>
+                        <span>{{ form.grade }}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span>{{ form.photo.label_tag }}</span>
+                        <span>{{ form.photo }}</span>
                     </div>
                     <div class="form-group col-md-12">
-                        <textarea class="form-control" rows="3" placeholder="Meassage"></textarea>
+                        <span>{{ form.intro }}</span>
                     </div>
                     <div class="form-group col-md-12">
                         <input class="btn btn-md btn-dark" type="submit" value="등록하기">
