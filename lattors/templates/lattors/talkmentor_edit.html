@@ -12,7 +12,7 @@
         </div>
         <ol class="breadcrumb pull-right mrg-top-30">
             <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
-            <li class="breadcrumb-item"><a href="#">멘티의 궁금한 이야기</a></li>
+            <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentee" %}">멘티의 궁금한 이야기</a></li>
         </ol>
     </div>
 </section>
@@ -21,8 +21,8 @@
 <section class="section-1">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="text-center">멘티의 진솔한 이야기</h2>
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2 class="mrg-btm-50">멘토의 <span class="theme-color">진솔한</span> 이야기</h2>
                 <div class="col-md-12"></div>
                 <form action="" method="post">
                     {% csrf_token %}

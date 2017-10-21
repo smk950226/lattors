@@ -94,3 +94,20 @@ class TalkMentor(models.Model):
     def get_absolute_url(self):
         return reverse('lattors:talk_mentor_detail', args=[self.id])
 
+
+class TalkMentee(models.Model):
+    writer = models.ForeignKey(Profile)
+    nickname = models.CharField(max_length=20)
+    title = models.CharField(max_length = 100, validators=[min_length_3_validator], verbose_name='제목')
+    content = models.TextField(verbose_name='내용')
+    hits = models.PositiveIntegerField(default=0, verbose_name='조회수')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at= models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-id']
+
+    
+    def get_absolute_url(self):
+        return reverse('lattors:talk_mentee_detail', args={self.id})
+

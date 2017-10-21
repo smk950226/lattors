@@ -1,5 +1,5 @@
 from django import forms
-from .models import Mentors, Mentee, ActPhoto, TalkMentor
+from .models import Mentors, Mentee, ActPhoto, TalkMentor, TalkMentee
 
 class MentorsForm(forms.ModelForm):
     class Meta:
@@ -54,4 +54,21 @@ class TalkMentorForm(forms.ModelForm):
             })
         }
 
-    
+
+class TalkMenteeForm(forms.ModelForm):
+    class Meta:
+        model = TalkMentee
+        fields = ['title', 'content']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': '제목',
+                'size': '120',
+            }),
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': '내용',
+                'rows': '10',
+                'cols': '200',
+            })
+        }

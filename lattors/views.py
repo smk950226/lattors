@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Mentors, Mentee, ActPhoto, TalkMentor
-from .forms import MentorsForm, MenteeForm, ActPhotoForm, TalkMentorForm
+from .models import Mentors, Mentee, ActPhoto, TalkMentor, TalkMentee
+from .forms import MentorsForm, MenteeForm, ActPhotoForm, TalkMentorForm, TalkMenteeForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DeleteView
 from django.db.models import F
@@ -149,3 +149,52 @@ def talk_mentor_edit(request, id):
     })
 
 talk_mentor_delete = DeleteView.as_view(model = TalkMentor, success_url=reverse_lazy('lattors:talk_mentor'), pk_url_kwarg='id')
+
+talk_mentee = ListView.as_view(model = TalkMentee, paginate_by = 20)
+
+@login_required
+def talk_mentee_new(request):
+    if request.method == 'POST':
+        form = TalkMenteeForm(request.POST)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.writer = request.user.profile
+            article.nickname = request.user.profile.nickname
+            article.save()
+            return redirect(article)
+    else:
+        form = TalkMenteeForm()
+    return render(request, 'lattors/talkmentee_form.html', {
+        'form': form,
+    })
+
+def talk_mentee_detail(request, id):
+    TalkMentee.objects.filter(id=id).update(hits=F('hits')+1)
+    article = get_object_or_404(TalkMentee, id=id)
+    next_article = TalkMentee.objects.filter(id__gt=article.id).order_by('id').first()
+    previous_article = TalkMentee.objects.filter(id__lt=article.id).order_by('-id').first()
+    
+    return render(request, 'lattors/talkmentee_detail.html', {
+        'article': article,
+        'next_article': next_article,
+        'previous_article': previous_article,
+    })
+
+def talk_mentee_edit(request, id):
+    article = get_object_or_404(TalkMentee, id=id)
+    if request.method == 'POST':
+        form = TalkMenteeForm(request.POST, instance = article)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.writer = request.user.profile
+            article.nickname = request.user.profile.nickname
+            article.save()
+            return redirect(article)
+    else:
+        form = TalkMenteeForm(instance = article)
+
+    return render(request, 'lattors/talkmentee_edit.html', {
+        'form': form,
+    })
+
+talk_mentee_delete = DeleteView.as_view(model = TalkMentee, success_url=reverse_lazy('lattors:talk_mentee'), pk_url_kwarg='id')

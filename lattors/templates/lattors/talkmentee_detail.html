@@ -7,8 +7,8 @@
     <img class="parallax-img no-mobile-parallax" src="{% static "images/community.jpg" %}" alt="" data-parallax='{"y": 150}'>
     <div class="container">
         <div class="page-tittle-head">
-            <h2>멘토의 진솔한 이야기</h2>
-            <p>멘토분들의 다양한 이야기를 들어보세요.</p>
+            <h2>멘티의 궁금한 이야기</h2>
+            <p>멘티분들의 다양한 궁금증을 이야기해 보세요.</p>
         </div>
         <ol class="breadcrumb pull-right mrg-top-30">
             <li class="breadcrumb-item"><a href="{% url "lattors:talk_mentor" %}">멘토의 진솔한 이야기</a></li>
@@ -48,23 +48,23 @@
         <div class="row">
             {% if previous_article %}
             <div class="col-md-2">
-                <a href="{% url "lattors:talk_mentor_detail" previous_article.id %}" class="btn btn-dark btn-md">이전글</a>
+                <a href="{% url "lattors:talk_mentee_detail" previous_article.id %}" class="btn btn-dark btn-md">이전글</a>
             </div>
             {% endif %}
             <div class="col-md-2">
-                <a href="{% url "lattors:talk_mentor" %}" class="btn btn-dark btn-md">목록으로</a>
+                <a href="{% url "lattors:talk_mentee" %}" class="btn btn-dark btn-md">목록으로</a>
             </div>
             {% if request.user.profile == article.writer or request.user.is_superuser %}
             <div class="col-md-2">
-                <a href="{% url "lattors:talk_mentor_edit" article.id %}" class="btn btn-dark btn-md">수정하기</a>
+                <a href="{% url "lattors:talk_mentee_edit" article.id %}" class="btn btn-dark btn-md">수정하기</a>
             </div>
             <div class="col-md-2">
-                <a href="{% url "lattors:talk_mentor_delete" article.id %}" class="btn btn-dark btn-md">삭제하기</a>
+                <a href="{% url "lattors:talk_mentee_delete" article.id %}" class="btn btn-dark btn-md">삭제하기</a>
             </div>
             {% endif %}
             {% if next_article %}
             <div class="col-md-2">
-                <a href="{% url "lattors:talk_mentor_detail" next_article.id %}" class="btn btn-dark btn-md">다음글</a>
+                <a href="{% url "lattors:talk_mentee_detail" next_article.id %}" class="btn btn-dark btn-md">다음글</a>
             </div>
             {% endif %}
         </div>
@@ -73,4 +73,5 @@
 
 
 <!-- Page Tittle End --> <!-- 조회수 띄우기 -->
+
 {% endblock %}
