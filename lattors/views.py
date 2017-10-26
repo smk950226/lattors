@@ -3,10 +3,92 @@ from .models import Mentors, Mentee, ActPhoto, TalkMentor, TalkMentee
 from .forms import MentorsForm, MenteeForm, ActPhotoForm, TalkMentorForm, TalkMenteeForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DeleteView
-from django.db.models import F
+from django.db.models import F, Q
 from accounts.models import Profile
 from django.urls import reverse_lazy
 from accounts.models import Mentor
+from django.views.generic.list import MultipleObjectMixin
+
+class MentorSearchListView(ListView):
+    def get_queryset(self):
+        obj_list = self.model.objects.all()
+        q = self.request.GET.get('q','')
+
+        if q:
+            obj_list = self.model.objects.filter(Q(name__icontains=q)|Q(major__icontains=q)|Q(sub_major__icontains=q)|Q(intro__icontains=q))
+
+        return obj_list
+    
+    def get_context_data(self, **kwargs):
+        """
+        Get the context for this view.
+        """
+        queryset = kwargs.pop('object_list', self.object_list)
+        page_size = self.get_paginate_by(queryset)
+        context_object_name = self.get_context_object_name(queryset)
+        if page_size:
+            paginator, page, queryset, is_paginated = self.paginate_queryset(queryset, page_size)
+            context = {
+                'q': self.request.GET.get('q',''),
+                'paginator': paginator,
+                'page_obj': page,
+                'is_paginated': is_paginated,
+                'object_list': queryset
+            }
+        else:
+            context = {
+                'q': self.request.GET.get('q',''),
+                'paginator': None,
+                'page_obj': None,
+                'is_paginated': False,
+                'object_list': queryset
+            }
+        if context_object_name is not None:
+            context[context_object_name] = queryset
+        context.update(kwargs)
+        return super(MultipleObjectMixin, self).get_context_data(**context)
+
+
+class SearchListView(ListView):
+    def get_queryset(self):
+        obj_list = self.model.objects.all()
+        q = self.request.GET.get('q','')
+
+        if q:
+            obj_list = self.model.objects.filter(Q(nickname__icontains=q)|Q(title__icontains=q)|Q(content__icontains=q))
+
+        return obj_list
+    
+    def get_context_data(self, **kwargs):
+        """
+        Get the context for this view.
+        """
+        queryset = kwargs.pop('object_list', self.object_list)
+        page_size = self.get_paginate_by(queryset)
+        context_object_name = self.get_context_object_name(queryset)
+        if page_size:
+            paginator, page, queryset, is_paginated = self.paginate_queryset(queryset, page_size)
+            context = {
+                'q': self.request.GET.get('q',''),
+                'paginator': paginator,
+                'page_obj': page,
+                'is_paginated': is_paginated,
+                'object_list': queryset
+            }
+        else:
+            context = {
+                'q': self.request.GET.get('q',''),
+                'paginator': None,
+                'page_obj': None,
+                'is_paginated': False,
+                'object_list': queryset
+            }
+        if context_object_name is not None:
+            context[context_object_name] = queryset
+        context.update(kwargs)
+        return super(MultipleObjectMixin, self).get_context_data(**context)
+
+
 
 def main(request):
     mentor1 = Mentor.objects.all().order_by('-hits')[:2][0]
@@ -54,7 +136,7 @@ def member(request):
 def contact(request):
     return render(request, 'lattors/comp_contact.html')
 
-mentors_list = ListView.as_view(model=Mentor, paginate_by=10)
+mentors_list = MentorSearchListView.as_view(model=Mentor, paginate_by=10)
 
 def mentor_detail(request, id):
     Mentor.objects.filter(id=id).update(hits=F('hits')+1)
@@ -95,7 +177,7 @@ def act_photo_add(request):
         'form': form,
     })
 
-talk_mentor = ListView.as_view(model=TalkMentor, paginate_by=20)
+talk_mentor = SearchListView.as_view(model=TalkMentor, paginate_by=20)
 
 @login_required
 def talk_mentor_new(request):
@@ -186,7 +268,7 @@ def talk_mentor_reject(request):
 
 talk_mentor_delete = DeleteView.as_view(model = TalkMentor, success_url=reverse_lazy('lattors:talk_mentor'), pk_url_kwarg='id')
 
-talk_mentee = ListView.as_view(model = TalkMentee, paginate_by = 20)
+talk_mentee = SearchListView.as_view(model = TalkMentee, paginate_by = 20)
 
 @login_required
 def talk_mentee_new(request):

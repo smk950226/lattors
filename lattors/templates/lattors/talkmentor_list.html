@@ -27,10 +27,12 @@
                         <div class="shop-sidebar sidebar-left">
                             <div class="widget widget-search">
                                 <h3 class="widget-tittle">Search</h3>
-                                <label class="input-wrapper">
-                            <input class="form-control" type="text" placeholder="Search">
-                            <a href="" class="btn inline-submit mrg-top-5"><i class="ei ei-search"></i></a>
-                        </label>
+                                <form action="" method="get">
+                                    <label class="input-wrapper">   
+                                        <input class="form-control" type="text" placeholder="Search" name="q" value="{{ q }}">
+                                        <a href="" class="btn inline-submit mrg-top-5"><i class="ei ei-search"></i></a>
+                                    </label>
+                                </form>
                             </div>
                             <div class="widget widget-link">
                                 <h3 class="widget-tittle">Categories</h3>
