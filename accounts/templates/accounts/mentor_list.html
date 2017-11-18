@@ -45,18 +45,14 @@
                                 <h3 class="widget-tittle">인기많은 멘토</h3>
                                 <div class="swiper-single swiper-container no-pdd-btm">
                                     <div class="swiper-wrapper">
+                                        {% for ordered_mentor in ordered_hits_list %}                                            
                                         <div class="swiper-slide">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                            <a href="#">Read More</a>
+                                            <h2>{{ ordered_mentor.name }}</h2>
+                                            <h3>{{ ordered_mentor.major }}</h3>
+                                            <p>{{ ordered_mentor.intro }}</p>
+                                            <a href="{% url "lattors:mentor_detail" ordered_mentor.id %}" class="btn btn-dark btn-md">바로가기</a>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                            <a href="#">Read More</a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                            <a href="#">Read More</a>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>	
                             </div>

@@ -29,6 +29,7 @@ class MentorSearchListView(ListView):
         if page_size:
             paginator, page, queryset, is_paginated = self.paginate_queryset(queryset, page_size)
             context = {
+                'ordered_hits_list': self.model.objects.all().order_by('-hits')[:3],
                 'q': self.request.GET.get('q',''),
                 'paginator': paginator,
                 'page_obj': page,
@@ -37,6 +38,7 @@ class MentorSearchListView(ListView):
             }
         else:
             context = {
+                'ordered_hits_list': self.model.objects.all().order_by('-hits')[:3],
                 'q': self.request.GET.get('q',''),
                 'paginator': None,
                 'page_obj': None,
